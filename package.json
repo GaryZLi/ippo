@@ -8,7 +8,8 @@
   },
   "scripts": {
     "puppeteer": "node puppeteer/index.js",
-    "transfer": "node transferServer/index.js",
+    "transferClient": "node transferServer/client.js",
+    "transferServer": "node transferServer/server.js",
     "download": "node downloadPix",
     "test": "nodemon test.js"
   }
