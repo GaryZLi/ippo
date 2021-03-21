@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "axios": "^0.21.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "puppeteer": "^8.0.0",
+    "ws": "^7.4.4"
+  },
+  "scripts": {
+    "puppeteer": "node puppeteer/index.js",
+    "transfer": "node transferServer/index.js",
+    "download": "node downloadPix",
+    "test": "nodemon test.js"
+  }
+}
