@@ -3,7 +3,6 @@ let storagePath = 'tempPath/';
 
 // --------------------------------------------------------
 const fs = require('fs');
-const axios = require('axios');
 
 if (storagePath[storagePath.length - 1] !== '/') storagePath += '/';
 
@@ -21,19 +20,18 @@ socket.onmessage = ({data}) => {
         p.pop();
         p = p.join('/');
 
-        if (!fs.existsSync(storagePath + p)) {
-            fs.mkdirSync(storagePath + p, {recursive: true});
+        if (!fs.existsSync(dir + p)) {
+            fs.mkdirSync(dir + p, {recursive: true});
         }
 
-        fs.writeFile(storagePath + path, results, {encoding: 'base64'}, err => err);
+        fs.writeFile(dir + path, results, {encoding: 'base64'}, err => err);
     }
-    // else {
-    //     const p = path.split('/')[0];
-    //     if (!fs.existsSync(storagePath + p)) {
-    //         fs.mkdirSync(storagePath + p, {recursive: true});
-    //     }
+    else {
+        const p = path.split('/')[0];
+        if (!fs.existsSync(dir + p)) {
+            fs.mkdirSync(dir + p, {recursive: true});
+        }
 
-    //     fs.writeFile(storagePath + path, results, err => err);
-    // }
-
+        fs.writeFile(dir + path, results, err => err);
+    }
 }
